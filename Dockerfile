@@ -12,7 +12,7 @@ deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted
 deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse \n\
 ' > /etc/apt/sources.list
 
-RUN apt update && apt install -y wget xz-utils git make python && \
+RUN apt update && apt install -y wget xz-utils git g++ make python && \
     wget https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.xz && \
     tar -C /usr/local/ -xJf node-${NODE_VERSION}-linux-x64.tar.xz && \
     rm -rf node-${NODE_VERSION}-linux-x64.tar.xz && \
