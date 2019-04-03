@@ -25,9 +25,11 @@ RUN apt update && apt install -y wget xz-utils git g++ make python && \
     npm install -g --unsafe-perm remix-ide && \
     sed -i s/127.0.0.1/0.0.0.0/g ${HOME}/.node/lib/node_modules/remix-ide/bin/remix-ide && \
     sed -i s/", loopback"//g ${HOME}/.node/lib/node_modules/remix-ide/node_modules/remixd/src/websocket.js && \
+    ln -s /usr/local/node-${NODE_VERSION}-linux-x64/bin/node /usr/bin/ && \
+    ln -s ${HOME}/.node/bin/remix-ide /usr/bin && \
     echo "Done."
 
 EXPOSE 8080
 EXPOSE 65520
 
-CMD ["remix-ide", "/app"]
+CMD "remix-ide" "/app"
